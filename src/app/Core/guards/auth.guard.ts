@@ -35,10 +35,8 @@ export class AuthGuard implements CanActivate {
 		this.tokenSend.token = token;
 		this.authService.verifyToken(this.tokenSend).subscribe(
 			(data) => {
-				console.log(data.message);
 			},
 			(error) => {
-        console.log('deu error')
 				localStorage.removeItem('token');
 			  this.router.navigate(['login']);
 			}
@@ -46,7 +44,6 @@ export class AuthGuard implements CanActivate {
 
 
     const EndToken = localStorage.getItem('token')
-      console.log(EndToken)
 		if (EndToken) {
 			return true;
 		} else {
