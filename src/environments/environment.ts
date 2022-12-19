@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  test: 'buceta'
+  api_url: 'http://localhost:3000'
 };
 
 /*

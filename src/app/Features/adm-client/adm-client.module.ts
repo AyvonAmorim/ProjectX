@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { AdmClientRoutingModule } from './adm-client-routing.module';
 import { AdmClientComponent } from './adm-client.component';
