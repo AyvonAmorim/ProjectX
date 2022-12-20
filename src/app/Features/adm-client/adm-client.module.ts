@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { AdmBaseComponent } from 'src/app/Core/components/administrator/adm-base/adm-base.component';
 import { AdmSidebarComponent } from 'src/app/Core/components/administrator/adm-sidebar/adm-sidebar.component';
 import { NavbarComponent } from 'src/app/Core/components/navbar/navbar.component';
+import { FarmAdmComponent } from './farm-adm/farm-adm.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NavbarComponent } from 'src/app/Core/components/navbar/navbar.component
     AdmSidebarComponent,
     NavbarComponent,
     AdmBaseComponent,
+    FarmAdmComponent,
   ],
   imports: [
     SharedModule,
