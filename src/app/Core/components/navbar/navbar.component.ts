@@ -15,16 +15,15 @@ export class NavbarComponent {
 
 	ngOnInit(): void {
 		this.decode = new decoded();
-    const token = localStorage.getItem('token');
-    this.decode = jwt_decode(token);
-    const Nome = this.UpperCase(this.decode.nome);
+		const token = localStorage.getItem('token');
+		this.decode = jwt_decode(token);
+		const Nome = this.UpperCase(this.decode.nome);
 		const Sobrenome = this.UpperCase(this.decode.sobrenome);
 
 		this.Nome = Nome + ' ' + Sobrenome;
 
-    this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil
+		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
 		console.log(this.ImgPerfilUrl);
-
 	}
 
 	UpperCase(string: string) {
