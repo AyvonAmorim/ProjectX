@@ -9,6 +9,8 @@ import {
 import { Observable } from 'rxjs';
 import { TokenSend } from '../models/auth';
 import { AuthService } from 'src/app/Shared/services/auth.service';
+import { decoded } from '../models/jwt';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
 	providedIn: 'root',
@@ -16,6 +18,7 @@ import { AuthService } from 'src/app/Shared/services/auth.service';
 export class AuthGuard implements CanActivate {
 	public tokenSend: TokenSend;
 	public tokenStatus: string;
+	public decode: decoded;
 
 	constructor(public router: Router, public authService: AuthService) {}
 
@@ -28,22 +31,27 @@ export class AuthGuard implements CanActivate {
 		| boolean
 		| UrlTree {
 		this.tokenSend = new TokenSend();
+		this.decode = new decoded();
 
 		const token = localStorage.getItem('token');
-    
 
 		this.tokenSend.token = token;
 		this.authService.verifyToken(this.tokenSend).subscribe(
 			(data) => {
+				this.decode = jwt_decode(token);
+				
+				if (this.decode.AdmAccess === false) { 
+					localStorage.removeItem('token');
+					this.router.navigate(['login']);
+				}
 			},
 			(error) => {
 				localStorage.removeItem('token');
-			  this.router.navigate(['login']);
+				this.router.navigate(['login']);
 			}
 		);
 
-
-    const EndToken = localStorage.getItem('token')
+		const EndToken = localStorage.getItem('token');
 		if (EndToken) {
 			return true;
 		} else {
