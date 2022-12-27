@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequestLogin, ResponseLogin, TokenSend, ValidTokenResponse } from '../../Core/models/auth';
+import { RequestLogin, ResponseLogin, TokenSend, ValidTokenResponse } from '../../Core/models/auth-models';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 

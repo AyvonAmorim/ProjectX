@@ -7,9 +7,9 @@ import {
 	UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { TokenSend } from '../models/auth';
+import { TokenSend } from '../models/auth-models';
 import { AuthService } from 'src/app/Shared/services/auth.service';
-import { decoded } from '../models/jwt';
+import { decoded } from '../models/jwt-models';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({

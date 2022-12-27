@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { AdmClientRoutingModule } from './adm-client-routing.module';
 import { AdmClientComponent } from './adm-client.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
@@ -8,6 +7,10 @@ import { AdmSidebarComponent } from 'src/app/Core/components/administrator/adm-s
 import { NavbarComponent } from 'src/app/Core/components/navbar/navbar.component';
 import { FarmAdmComponent } from './farm-adm/farm-adm.component';
 import { ColabAdmComponent } from './colab-adm/colab-adm.component';
+import { CreateFarmAdmComponent } from './farm-adm/create-farm-adm/create-farm-adm.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { CreateColabAdmComponent } from './colab-adm/create-colab-adm/create-colab-adm.component';
 
 
 @NgModule({
@@ -18,10 +21,15 @@ import { ColabAdmComponent } from './colab-adm/colab-adm.component';
     AdmBaseComponent,
     FarmAdmComponent,
     ColabAdmComponent,
+    CreateFarmAdmComponent,
+    CreateColabAdmComponent,
+
   ],
   imports: [
+    MatDialogModule,
+    FormsModule,
     SharedModule,
-    AdmClientRoutingModule,  
+    AdmClientRoutingModule,
   ]
 })
 export class AdmClientModule { }

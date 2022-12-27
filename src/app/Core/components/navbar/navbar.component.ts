@@ -1,7 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { decoded } from '../../models/jwt';
+import { decoded } from '../../models/jwt-models';
 
 @Component({
 	selector: 'app-navbar',

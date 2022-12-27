@@ -1,0 +1,48 @@
+<div class="container p-4">
+	<form>
+		<div class="form-floating mb-3">
+			<input [(ngModel)]="createUser.nome" [ngModelOptions]="{standalone: true}"
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="Nome"
+			/>
+			<label for="floatingInput">Nome</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input [(ngModel)]="createUser.sobrenome" [ngModelOptions]="{standalone: true}"
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="Sobrenome"
+			/>
+			<label for="floatingInput">Sobrenome</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input [(ngModel)]="createUser.email" [ngModelOptions]="{standalone: true}"
+				type="email" 
+				class="form-control"
+				id="floatingInput"
+				placeholder="email"
+			/>
+			<label for="floatingInput">Email</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input [(ngModel)]="createUser.senha" [ngModelOptions]="{standalone: true}"
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="senha"
+			/>
+			<label for="floatingInput">Senha</label>
+		</div>
+		<div class="mb-3">
+			<label for="formFile" class="form-label">Foto de Perfil</label>
+			<input class="form-control" type="file" id="formFile" (change)="fileEvent($event)">
+		</div>
+	</form>
+	<div class="d-grid gap-2 col-6 mx-auto p-2">
+		<button type="button" class="btn btn-outline-success" (click)="doCreateUser()">Criar</button>
+		<button type="button" class="btn btn-outline-warning" (click)="close()">Cancelar</button>
+	</div>
+</div>

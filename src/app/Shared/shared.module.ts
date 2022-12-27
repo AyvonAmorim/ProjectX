@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 
@@ -13,12 +15,14 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule
   ],
   exports: [
     FontAwesomeModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
   ]
 })
 export class SharedModule { }

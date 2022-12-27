@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Shared/services/auth.service';
-import { RequestLogin, TokenSend } from '../../Core/models/auth';
+import { RequestLogin, TokenSend } from '../../Core/models/auth-models';
 
 @Component({
 	selector: 'app-login',
@@ -30,15 +30,13 @@ export class LoginComponent {
 
 				this.authService.verifyToken(this.tokenSend).subscribe(
 					(verify) => {
-						if(verify.message === 'valid'){
-              
-              localStorage.setItem('token',token.token);
+						if (verify.message === 'valid') {
+							localStorage.setItem('token', token.token);
 
-              this.router.navigate(['client'])
-            }
-            else{
-              console.log('token Não valido')
-            }
+							this.router.navigate(['client']);
+						} else {
+							console.log('token Não valido');
+						}
 					},
 					(error) => {
 						console.error(error.error.message);
@@ -50,6 +48,4 @@ export class LoginComponent {
 			}
 		);
 	}
-
-  
 }

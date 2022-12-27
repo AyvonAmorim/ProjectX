@@ -1,11 +1,11 @@
 <div class="container p-1">
-    <a class="btn btn-success btn-circle btn-sm mx-1">
+    <a class="btn btn-success btn-circle btn-sm mx-1" (click)="createFarm()">
         <i class="fas fa-plus"></i>
     </a>
     </div>
-<div class="container card mb-4 py-4 border-left-success">
+<div class="container card mb-2 py-4 border-left-success" *ngFor="let list of farmList">
     <div class="row">
-        <div class="col order-fist">Faz. Name</div>
+        <div class="col order-fist">{{list.FarmName}}</div>
         <div class="col">xxxx Machos</div>
         <div class="col">xxxx Fêmeas</div>
         <div class="col">xxxx Rebanho Total</div>
