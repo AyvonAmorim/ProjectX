@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './Core/guards/auth.guard';
 import { SharedModule } from './Shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

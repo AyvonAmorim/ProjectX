@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {  MatFormFieldModule } from '@angular/material/form-field';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -23,7 +24,7 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     FormsModule,
     MatFormFieldModule,
-    
+    NgbNavModule
   ]
 })
 export class SharedModule { }

@@ -31,7 +31,7 @@ import { ColabAdmPageComponent } from './colab-adm/colab-adm-page/colab-adm-page
     FormsModule,
     SharedModule,
     AdmClientRoutingModule,
-  
+    
   ]
 })
 export class AdmClientModule { }

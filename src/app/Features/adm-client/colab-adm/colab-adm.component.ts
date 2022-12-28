@@ -44,7 +44,7 @@ export class ColabAdmComponent {
 
 	public openColabAdm() {
 		const dialogRef = this.dialog.open(ColabAdmPageComponent, {
-			width: '350px',
+			width: '500px',
 			height: 'auto',
 		});
 	}
