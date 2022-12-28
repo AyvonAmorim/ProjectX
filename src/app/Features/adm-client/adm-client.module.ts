@@ -11,7 +11,7 @@ import { CreateFarmAdmComponent } from './farm-adm/create-farm-adm/create-farm-a
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CreateColabAdmComponent } from './colab-adm/create-colab-adm/create-colab-adm.component';
-
+import { ColabAdmPageComponent } from './colab-adm/colab-adm-page/colab-adm-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { CreateColabAdmComponent } from './colab-adm/create-colab-adm/create-col
     ColabAdmComponent,
     CreateFarmAdmComponent,
     CreateColabAdmComponent,
+    ColabAdmPageComponent,
 
   ],
   imports: [
@@ -30,6 +31,7 @@ import { CreateColabAdmComponent } from './colab-adm/create-colab-adm/create-col
     FormsModule,
     SharedModule,
     AdmClientRoutingModule,
+  
   ]
 })
 export class AdmClientModule { }

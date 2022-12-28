@@ -16,13 +16,14 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   exports: [
     FontAwesomeModule,
     CommonModule,
     FormsModule,
     MatFormFieldModule,
+    
   ]
 })
 export class SharedModule { }
