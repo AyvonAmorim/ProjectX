@@ -3,12 +3,11 @@
         <i class="fas fa-plus"></i>
     </a>
     </div>
-<div class="container card mb-2 py-4 border-left-success">
+<div class="container card mb-2 py-4 border-left-success" *ngFor="let list of UserList">
     <div class="row">
-        <div class="col order-fist">Nome Funcionário</div>
-        <div class="col">xxxx Machos</div>
-        <div class="col">xxxx Fêmeas</div>
-        <div class="col">xxxx Rebanho Total</div>
-        <div class="col order-last"><button type="button" class="btn btn-primary btn-sm">Administrar</button></div>
+        <div class="col order-fist p-2">{{this.UpperCase(list.nome)}}</div>
+        <div class="col p-2">{{this.UpperCase(list.sobrenome)}}</div>
+        <div class="col"><img class="rounded-circle img-fluid" style="max-width: 45px;" [attr.src]="'http://localhost:3000/'+list.ImgPerfil"></div>
+        <div class="col order-last p-2"><button type="button" class="btn btn-primary btn-sm">Administrar</button></div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { decoded } from '../../models/jwt-models';
+import { Decoded } from '../../models/jwt-models';
 
 @Component({
 	selector: 'app-navbar',
@@ -9,12 +9,12 @@ import { decoded } from '../../models/jwt-models';
 	styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-	public decode: decoded;
+	public decode: Decoded;
 	public Nome: string;
 	public ImgPerfilUrl: string;
 
 	ngOnInit(): void {
-		this.decode = new decoded();
+		this.decode = new Decoded();
 		const token = localStorage.getItem('token');
 		this.decode = jwt_decode(token);
 		const Nome = this.UpperCase(this.decode.nome);

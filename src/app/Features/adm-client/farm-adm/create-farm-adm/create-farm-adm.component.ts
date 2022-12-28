@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { decoded } from 'src/app/Core/models/jwt-models';
+import { Decoded } from 'src/app/Core/models/jwt-models';
 import jwt_decode from 'jwt-decode';
 import { CreateFarm } from 'src/app/Core/models/farm-models';
 import { FarmService } from '../../../../Shared/services/farm.service';
@@ -13,14 +13,14 @@ import { AlertService } from '../../../../Shared/services/alert.service';
   styleUrls: ['./create-farm-adm.component.css'],
 })
 export class CreateFarmAdmComponent {
-  public decoded : decoded;
+  public decoded : Decoded;
   public createFarm: CreateFarm; 
 
   constructor (public dialogRef: MatDialogRef<CreateFarmAdmComponent>, private farmService: FarmService, private alertService: AlertService) {}
 
   ngOnInit(): void {
     this.createFarm = new CreateFarm();
-    this.decoded = new decoded();
+    this.decoded = new Decoded();
 
     const token = localStorage.getItem('token');
 		this.decoded = jwt_decode(token);

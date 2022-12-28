@@ -9,7 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { TokenSend } from '../models/auth-models';
 import { AuthService } from 'src/app/Shared/services/auth.service';
-import { decoded } from '../models/jwt-models';
+import { Decoded } from '../models/jwt-models';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
@@ -18,7 +18,7 @@ import jwt_decode from 'jwt-decode';
 export class AuthGuard implements CanActivate {
 	public tokenSend: TokenSend;
 	public tokenStatus: string;
-	public decode: decoded;
+	public decode: Decoded;
 
 	constructor(public router: Router, public authService: AuthService) {}
 
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
 		| boolean
 		| UrlTree {
 		this.tokenSend = new TokenSend();
-		this.decode = new decoded();
+		this.decode = new Decoded();
 
 		const token = localStorage.getItem('token');
 

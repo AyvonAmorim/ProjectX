@@ -1,7 +1,7 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
 import { CreateUser } from '../../../../Core/models/user-models';
 import { MatDialogRef } from '@angular/material/dialog';
-import { decoded } from 'src/app/Core/models/jwt-models';
+import { Decoded } from 'src/app/Core/models/jwt-models';
 import jwt_decode from 'jwt-decode';
 import { AlertService } from '../../../../Shared/services/alert.service';
 import { UserService } from '../../../../Shared/services/user.service';
@@ -14,13 +14,13 @@ import { UserService } from '../../../../Shared/services/user.service';
 })
 export class CreateColabAdmComponent {
   public createUser : CreateUser;
-  public decode : decoded;
+  public decode : Decoded;
 
   constructor(public dialogRef: MatDialogRef<CreateColabAdmComponent>, private alertService: AlertService, private userService: UserService) {}
 
   ngOnInit() {
     this.createUser = new CreateUser();
-    this.decode = new decoded();
+    this.decode = new Decoded();
 
     const token = localStorage.getItem('token');
 		this.decode = jwt_decode(token);
@@ -49,6 +49,7 @@ export class CreateColabAdmComponent {
       this.userService.createUser(this.createUser).subscribe(
         (data) => {
           this.alertService.success('Acesso do Colaborador ' + data.user, 'criado com sucesso')
+          this,this.dialogRef.close();
         }, (error) => {
           this.alertService.error(error.error.message, '')
         }

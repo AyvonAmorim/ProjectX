@@ -1,4 +1,4 @@
-export class decoded {
+export class Decoded {
     public client_id: string;
     public AdmAccess: boolean;
     public ImgPerfil: string;
