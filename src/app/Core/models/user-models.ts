@@ -5,7 +5,7 @@ export class CreateUser {
     public senha: string;
     public AdmAccess = false;
     public client_id: string;
-    public img: any
+    public img: File;
 }
 
 export class ResponseCreateUser {

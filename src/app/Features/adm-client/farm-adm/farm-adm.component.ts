@@ -22,7 +22,6 @@ export class FarmAdmComponent {
 		const token = localStorage.getItem('token');
 		this.decoded = jwt_decode(token);
 
-		console.log(this.decoded.client_id);
 		this.getList(this.decoded.client_id);
 	}
 

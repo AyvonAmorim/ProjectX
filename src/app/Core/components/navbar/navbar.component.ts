@@ -23,7 +23,6 @@ export class NavbarComponent {
 		this.Nome = Nome + ' ' + Sobrenome;
 
 		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
-		console.log(this.ImgPerfilUrl);
 	}
 
 	UpperCase(string: string) {

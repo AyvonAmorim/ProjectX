@@ -12,6 +12,16 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public createUser(createUser: CreateUser): Observable<ResponseCreateUser> {
-    return this.http.post<ResponseCreateUser>(environment.api_url + '/user', createUser.img)
+    let formData = new FormData();
+    
+    formData.append('nome', createUser.nome);
+    formData.append('sobrenome', createUser.sobrenome);
+    formData.append('email', createUser.email);
+    formData.append('senha', createUser.senha);
+    formData.append('AdmAccess', 'false');
+    formData.append('client_id', createUser.client_id);
+    formData.append('img', createUser.img, createUser.img.name)
+
+    return this.http.post<ResponseCreateUser>(environment.api_url + '/user', formData)
   }
 }

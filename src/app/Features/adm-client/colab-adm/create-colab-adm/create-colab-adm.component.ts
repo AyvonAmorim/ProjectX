@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { CreateUser } from '../../../../Core/models/user-models';
 import { MatDialogRef } from '@angular/material/dialog';
 import { decoded } from 'src/app/Core/models/jwt-models';
@@ -31,9 +31,12 @@ export class CreateColabAdmComponent {
 	}
 
   fileEvent(event: any){
-    this.createUser.img = event.target.files;
-    console.log(this.createUser.img)
 
+    const selectedFile = <FileList>event.srcElement.files;
+
+    this.createUser.img = selectedFile[0]
+
+    console.log(this.createUser.img.name)
   }
 
   doCreateUser() {
