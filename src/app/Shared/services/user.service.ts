@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateUser, ResponseCreateUser, UserNoAdmList } from '../../Core/models/user-models';
+import { BaseResponse, CreateUser, ResponseCreateUser, UpdateAdmList, UserNoAdmList } from '../../Core/models/user-models';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -28,6 +28,10 @@ export class UserService {
 	}
 
 	public GetListNoAdm(client_id: string): Observable<UserNoAdmList> {
-		return this.http.get<UserNoAdmList>(environment.api_url + '/user/' + client_id)
+		return this.http.get<UserNoAdmList>(environment.api_url + '/user/' + client_id);
+	}
+
+	public updateAccessList(updateAdmList: UpdateAdmList): Observable<BaseResponse> {
+		return this.http.post<BaseResponse>(environment.api_url + '/user/test', updateAdmList);
 	}
 }

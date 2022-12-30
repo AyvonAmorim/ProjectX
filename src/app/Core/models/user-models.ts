@@ -21,5 +21,10 @@ export class UserNoAdmList {
 }
 
 export class UpdateAdmList {
+	public user_id: string;
 	public ActiveFarms= [''];
+}
+
+export class BaseResponse {
+	public message: string;
 }
