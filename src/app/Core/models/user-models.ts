@@ -19,3 +19,7 @@ export class UserNoAdmList {
 	public sobrenome: string;
 	public ImgPerfil: string;
 }
+
+export class UpdateAdmList {
+	public ActiveFarms= [''];
+}

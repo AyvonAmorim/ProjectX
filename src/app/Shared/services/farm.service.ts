@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreateFarm, FarmList, ResponseCreateFarm } from 'src/app/Core/models/farm-models';
+import { ActiveFarms, CreateFarm, FarmList, ResponseCreateFarm } from 'src/app/Core/models/farm-models';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class FarmService {
 
   public createFarm(createFarm: CreateFarm): Observable<ResponseCreateFarm> {
     return this.http.post<ResponseCreateFarm>(environment.api_url + '/farm', createFarm)
+  }
+
+  public requestActiveFarms(user_id: string): Observable<ActiveFarms> {
+    return this.http.get<ActiveFarms>(environment.api_url + '/user/adm/' + user_id)
   }
 
 }

@@ -42,9 +42,9 @@ export class ColabAdmComponent {
 		});
 	}
 
-	public openColabAdm() {
+	public openColabAdm(id: string) {
 		const dialogRef = this.dialog.open(ColabAdmPageComponent, {
-			data: this.decoded.client_id,
+			data: id,
 			width: '500px',
 			height: 'auto',
 		});

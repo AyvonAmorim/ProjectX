@@ -5,28 +5,41 @@
 				>Permissões de Acesso</a
 			>
 			<ng-template ngbNavContent>
-				<div class="container p-2">
-					<ul class="list-group list-group-horizontal-sm">
-						<li class="list-group-item">Nome da Fazenda</li>
-						<li class="list-group-item pl-4">
-							<input
-								class="form-check-input me-1"
-								type="checkbox"
-								value="true"
-								id="sim"
-							/>
-							<label class="form-check-label" for="sim">sim</label>
-						</li>
-						<li class="list-group-item pl-4">
-							<input
-								class="form-check-input me-1"
-								type="checkbox"
-								value="false"
-								id="nao"
-							/>
-							<label class="form-check-label" for="nao">não</label>
-						</li>
-					</ul>
+				<div class="container card mt-2 py-3" *ngFor="let list of farmList;let index = index;">
+					<div class="row">
+						<div class="col order-fist">{{ list.FarmName }}</div>
+						<div class="col">
+							<div class="form-check">
+								<input (change)="EnabledSave()"
+									class="form-check-input"
+									type="radio"
+									name="{{ list._id }}"
+									id="SIM"
+									[checked]="getAccessValeuSim(list._id, index)"
+									value="{{list._id}}"
+									(change)="SimEvent($event, index)"
+									
+								/>
+								<label class="form-check-label" for="SIM"> SIM </label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-check">
+								<input (change)="EnabledSave()"
+									class="form-check-input"
+									type="radio"
+									name="{{ list._id }}"
+									id="NAO"
+									[checked]="getAccessValeuNao(list._id)"
+									(change)="NaoEvent(index)"
+								/>
+								<label class="form-check-label" for="NAO"> NÃO </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d-grid gap-2 col-6 mx-auto p-2">
+					<button type="button" class="btn btn-outline-success" [disabled]="enabled" (click)="save()">SALVAR</button>
 				</div>
 			</ng-template>
 		</li>

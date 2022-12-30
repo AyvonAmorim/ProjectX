@@ -11,3 +11,6 @@ export class ResponseCreateFarm {
     public message: string;
     public name: string;
 }
+export class ActiveFarms {
+    public ActiveFarms: any;
+}
