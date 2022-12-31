@@ -7,15 +7,15 @@ import {
 	UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { TokenSend } from '../models/auth-models';
 import { AuthService } from 'src/app/Shared/services/auth.service';
+import { TokenSend } from '../models/auth-models';
 import { Decoded } from '../models/jwt-models';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
 	providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthUserGuard implements CanActivate {
 	public tokenSend: TokenSend;
 	public tokenStatus: string;
 	public decode: Decoded;
@@ -40,8 +40,8 @@ export class AuthGuard implements CanActivate {
 			(data) => {
 				this.decode = jwt_decode(token);
 
-				if (this.decode.AdmAccess === false) {
-					this.router.navigate(['user']);
+				if (this.decode.AdmAccess === true) {
+					this.router.navigate(['client']);
 				}
 			},
 			(error) => {

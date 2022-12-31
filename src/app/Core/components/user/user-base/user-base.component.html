@@ -1,8 +1,8 @@
 <div id="wrapper">
-    <app-adm-sidebar class="bg-gradient-success"></app-adm-sidebar>
+    <app-user-sidebar class="bg-gradient-success"></app-user-sidebar>
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-            <app-adm-navbar></app-adm-navbar>
+            <app-user-navbar></app-user-navbar>
             <div class="container-fluid">
                 <router-outlet></router-outlet>
             </div>
@@ -23,7 +23,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" (click)="logout()">Logout</a>
+                    <a class="btn btn-primary">Logout</a>
                 </div>
             </div>
         </div>

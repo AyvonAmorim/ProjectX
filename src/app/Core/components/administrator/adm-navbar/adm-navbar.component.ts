@@ -1,19 +1,18 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import jwt_decode from 'jwt-decode';
-import { Decoded } from '../../models/jwt-models';
+import { Decoded } from 'src/app/Core/models/jwt-models';
+import  jwt_decode  from 'jwt-decode';
 
 @Component({
-	selector: 'app-navbar',
-	templateUrl: './navbar.component.html',
-	styleUrls: ['./navbar.component.css'],
+  selector: 'app-adm-navbar',
+  templateUrl: './adm-navbar.component.html',
+  styleUrls: ['./adm-navbar.component.css']
 })
-export class NavbarComponent {
-	public decode: Decoded;
+export class AdmNavbarComponent {
+  public decode: Decoded;
 	public Nome: string;
 	public ImgPerfilUrl: string;
 
-	ngOnInit(): void {
+  ngOnInit(): void {
 		this.decode = new Decoded();
 		const token = localStorage.getItem('token');
 		this.decode = jwt_decode(token);
@@ -25,7 +24,7 @@ export class NavbarComponent {
 		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
 	}
 
-	UpperCase(string: string) {
+  UpperCase(string: string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 }
