@@ -18,7 +18,7 @@ export class CreateRetiroComponent {
 	constructor(
 		public dialogRef: MatDialogRef<CreateRetiroComponent>,
 		private retiroService: RetiroService,
-    private alertSerVice: AlertService,
+		private alertSerVice: AlertService
 	) {}
 
 	ngOnInit() {
@@ -33,12 +33,23 @@ export class CreateRetiroComponent {
 		this.dialogRef.close();
 	}
 
-  doCreateRetiro() {
-    this.createRetiro.client_id = this.decoded.client_id
-    this.createRetiro.farm_id = localStorage.getItem('selectedOption')
+	doCreateRetiro() {
+		this.createRetiro.client_id = this.decoded.client_id;
+		this.createRetiro.farm_id = localStorage.getItem('selectedOption');
 
-    if(!this.createRetiro.client_id || !this.createRetiro.farm_id || !this.createRetiro.retName) {
-      this.alertSerVice.warning('Insira todos os dados', '')
+		if (
+			!this.createRetiro.client_id ||
+			!this.createRetiro.farm_id ||
+			!this.createRetiro.retName
+		) {
+			this.alertSerVice.warning('Insira todos os dados', '');
+		}
+    else {
+      this.retiroService.createRetiro(this.createRetiro).subscribe((data) => {
+        this.alertSerVice.success(data.message,data.name)
+      },(error) => {
+					this.alertSerVice.error(error.error.message, '');
+      });
     }
-  }
+	}
 }
