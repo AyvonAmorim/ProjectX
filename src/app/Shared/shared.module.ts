@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [],
@@ -14,6 +15,7 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 		HttpClientModule,
 		FormsModule,
 		MatFormFieldModule,
+		MatDialogModule,
 	],
 	exports: [
 		FontAwesomeModule,
@@ -21,6 +23,7 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 		FormsModule,
 		MatFormFieldModule,
 		NgbNavModule,
+		MatDialogModule,
 	],
 })
 export class SharedModule {}

@@ -46,6 +46,7 @@ export class AuthUserGuard implements CanActivate {
 			},
 			(error) => {
 				localStorage.removeItem('token');
+				localStorage.removeItem('selectedOption');
 				this.router.navigate(['login']);
 			}
 		);

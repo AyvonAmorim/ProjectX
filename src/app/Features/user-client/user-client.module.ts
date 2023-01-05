@@ -8,6 +8,7 @@ import { UserBaseComponent } from 'src/app/Core/components/user/user-base/user-b
 import { UserSidebarComponent } from 'src/app/Core/components/user/user-sidebar/user-sidebar.component';
 import { UserNavbarComponent } from 'src/app/Core/components/user/user-navbar/user-navbar.component';
 import { RetiroComponent } from './retiro/retiro.component';
+import { CreateRetiroComponent } from './retiro/create-retiro/create-retiro.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { RetiroComponent } from './retiro/retiro.component';
     UserSidebarComponent,
     UserNavbarComponent,
     RetiroComponent,
+    CreateRetiroComponent,
   ],
   imports: [
     SharedModule,
