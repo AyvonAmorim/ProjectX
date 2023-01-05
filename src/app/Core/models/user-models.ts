@@ -28,3 +28,8 @@ export class UpdateAdmList {
 export class BaseResponse {
 	public message: string;
 }
+
+export class AccessListForSelect {
+	public _id: string;
+	public FarmName: string;
+}
