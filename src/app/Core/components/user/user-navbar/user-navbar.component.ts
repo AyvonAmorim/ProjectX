@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Decoded } from 'src/app/Core/models/jwt-models';
-import jwt_decode from 'jwt-decode';
 import { UserService } from '../../../../Shared/services/user.service';
+import { JwtService } from '../../../../Shared/services/jwt.service';
 
 @Component({
 	selector: 'app-user-navbar',
@@ -9,27 +8,25 @@ import { UserService } from '../../../../Shared/services/user.service';
 	styleUrls: ['./user-navbar.component.css'],
 })
 export class UserNavbarComponent {
-	public decode: Decoded;
-	public Nome: string;
+	public decode: any;
+	public CompleteName: string;
 	public ImgPerfilUrl: string;
 	public farmList: any;
 	public selectedOption: string
 
-	constructor(private userService: UserService) {
+	constructor(private userService: UserService, private jwtService: JwtService) {
 		this.selectedOption = localStorage.getItem("selectedOption")
 	}
 
 	ngOnInit(): void {
-		this.decode = new Decoded();
 		const token = localStorage.getItem('token');
-		this.decode = jwt_decode(token);
+		this.decode = this.jwtService.Decode(token);
 		const Nome = this.UpperCase(this.decode.nome);
 		const Sobrenome = this.UpperCase(this.decode.sobrenome);
-
-		this.Nome = Nome + ' ' + Sobrenome;
+		this.CompleteName = Nome + ' ' + Sobrenome;
+		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
 
 		this.getFarmList();
-		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
 	}
 
 	UpperCase(string: string) {
@@ -44,5 +41,6 @@ export class UserNavbarComponent {
 
 	public onChange(event: any) {
 		localStorage.setItem("selectedOption", event.target.value)
+		window.location.reload()
 	}
 }

@@ -49,7 +49,7 @@ export class CreateRetiroComponent {
 					const preToken = response.headers.get('Authorization')
 					const token = preToken && preToken.split(" ")[1];
 					localStorage.setItem('token', token)
-					this.alertSerVice.success(response.body.message, response.body.name);
+					this.alertSerVice.successReload(response.body.message, response.body.name);
 				},
 				(error) => {
 					this.alertSerVice.error(error.error.message, '');

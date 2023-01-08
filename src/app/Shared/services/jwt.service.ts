@@ -11,7 +11,7 @@ export class JwtService {
 
   constructor() { }
 
-  public Decode(token: any){
+  public Decode(token: string){
     this.decoded = jwt_decode(token);
     return this.decoded;
   }

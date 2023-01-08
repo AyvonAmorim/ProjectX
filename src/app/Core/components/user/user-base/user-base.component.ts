@@ -12,7 +12,9 @@ export class UserBaseComponent {
     localStorage.removeItem('selectedOption');
     localStorage.removeItem('client_id');
     localStorage.removeItem('user_id');
-    window.location.reload()
+    localStorage.removeItem('nome');
+    localStorage.removeItem('sobrenome');
+    window.location.reload();
 	}
 
 }

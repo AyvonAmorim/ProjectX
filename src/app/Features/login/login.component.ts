@@ -43,8 +43,6 @@ export class LoginComponent {
 						if (verify.message === 'valid') {
 							localStorage.setItem('token', token.token);
 							localStorage.setItem('selectedOption', this.decoded.ActiveFarms[0]);
-							localStorage.setItem('client_id', this.decoded.client_id);
-							localStorage.setItem('user_id', this.decoded.id);
 							this.router.navigate(['client']);
 						} else {
 							console.log('token Não valido');

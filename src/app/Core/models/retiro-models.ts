@@ -8,3 +8,8 @@ export class ResponseCreateRetiro {
     public message: string;
     public name: string;
 }
+
+export class listOfRetiro {
+    public _id: string;
+    public RetiroName: string;
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import {
 	CreateRetiro,
+	listOfRetiro,
 	ResponseCreateRetiro,
 } from '../../Core/models/retiro-models';
 import { Observable } from 'rxjs';
@@ -20,6 +21,16 @@ export class RetiroService {
 		return this.http.post<ResponseCreateRetiro>(
 			environment.api_url + '/retiro',
 			createRetiro,
+			{ observe: 'response', headers: reqHeader }
+		);
+	}
+
+	public RetiroList(farm_id: string) {
+		const token = localStorage.getItem('token');
+		const reqHeader = new HttpHeaders({ authorization: `Bearer ${token}` });
+
+		return this.http.get<listOfRetiro>(
+			environment.api_url + '/retiro/' + farm_id,
 			{ observe: 'response', headers: reqHeader }
 		);
 	}
