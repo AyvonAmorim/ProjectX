@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class UserClientComponent {
 
+  ngOnInit() {
+		const token = localStorage.getItem('token');
+		console.log(token)
+	}
+
 }

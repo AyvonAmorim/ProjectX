@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class UserBaseComponent {
 
+  logout() {
+		localStorage.removeItem('token');
+    localStorage.removeItem('selectedOption');
+    localStorage.removeItem('client_id');
+    localStorage.removeItem('user_id');
+    window.location.reload()
+	}
+
 }

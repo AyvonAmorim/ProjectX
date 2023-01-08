@@ -43,13 +43,21 @@ export class CreateRetiroComponent {
 			!this.createRetiro.retName
 		) {
 			this.alertSerVice.warning('Insira todos os dados', '');
-		}
-    else {
-      this.retiroService.createRetiro(this.createRetiro).subscribe((data) => {
-        this.alertSerVice.success(data.message,data.name)
-      },(error) => {
+		} else {
+			this.retiroService.createRetiro(this.createRetiro).subscribe(
+				(response) => {
+					const preToken = response.headers.get('Authorization')
+					const token = preToken && preToken.split(" ")[1];
+					localStorage.setItem('token', token)
+					this.alertSerVice.success(response.body.message, response.body.name);
+				},
+				(error) => {
 					this.alertSerVice.error(error.error.message, '');
-      });
-    }
+					const preToken = error.headers.get('Authorization')
+					const token = preToken && preToken.split(" ")[1];
+					localStorage.setItem('token', token)
+				}
+			);
+		}
 	}
 }

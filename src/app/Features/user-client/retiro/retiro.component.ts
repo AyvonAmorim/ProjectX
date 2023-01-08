@@ -11,6 +11,8 @@ export class RetiroComponent {
 
   constructor(public dialog: MatDialog) {}
 
+  
+
   public createRetiro() {
     const dialogRef = this.dialog.open(CreateRetiroComponent, {
 			width: '500px',
