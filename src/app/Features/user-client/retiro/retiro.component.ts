@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateRetiroComponent } from './create-retiro/create-retiro.component';
 import { RetiroService } from 'src/app/Shared/services/retiro.service';
-import { listOfRetiro } from 'src/app/Core/models/retiro-models';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,11 @@ export class RetiroComponent {
 	public listOfRetiro: any;
 	public Decoded: any;
 
-	constructor(public dialog: MatDialog, private retiroService: RetiroService, private router: Router) {}
+	constructor(
+		public dialog: MatDialog,
+		private retiroService: RetiroService,
+		private router: Router
+	) {}
 
 	ngOnInit() {
 		this.getRetiroList();
@@ -40,7 +43,7 @@ export class RetiroComponent {
 			});
 	}
 
-  public OpenPasto(_id: string) {
-    this.router.navigate(['user/pastos', {id:_id}])
-  }
+	public OpenPasto(_id: string) {
+		this.router.navigate(['user/pastos', { id: _id }]);
+	}
 }
