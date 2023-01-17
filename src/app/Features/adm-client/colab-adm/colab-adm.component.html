@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col order-fist p-2">{{this.UpperCase(list.nome)}}</div>
         <div class="col p-2">{{this.UpperCase(list.sobrenome)}}</div>
-        <div class="col"><img class="rounded-circle img-fluid" style="max-width: 45px;" [attr.src]="'http://localhost:3000/'+list.ImgPerfil"></div>
+        <div class="col"><img class="rounded-circle img-fluid" style="max-width: 45px;" [attr.src]="list.ImgPerfil"></div>
         <div class="col order-last p-2"><button type="button" class="btn btn-primary btn-sm" (click)="openColabAdm(list._id)" >Administrar</button></div>
     </div>
 </div>

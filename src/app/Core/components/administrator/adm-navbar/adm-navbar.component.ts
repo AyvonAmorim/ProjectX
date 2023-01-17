@@ -21,7 +21,7 @@ export class AdmNavbarComponent {
 
 		this.Nome = Nome + ' ' + Sobrenome;
 
-		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
+		this.ImgPerfilUrl = this.decode.ImgPerfil;
 	}
 
   UpperCase(string: string) {

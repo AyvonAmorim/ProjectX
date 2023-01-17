@@ -9,3 +9,8 @@ export class ResponseCreatePasto {
 	public message: string;
 	public name: string;
 }
+
+export class ResponseListPasto {
+	public _id: string;
+	public PastoName: string;
+}

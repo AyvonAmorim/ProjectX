@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../Shared/services/user.service';
 import { JwtService } from '../../../../Shared/services/jwt.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
 	selector: 'app-user-navbar',
@@ -24,8 +25,7 @@ export class UserNavbarComponent {
 		const Nome = this.UpperCase(this.decode.nome);
 		const Sobrenome = this.UpperCase(this.decode.sobrenome);
 		this.CompleteName = Nome + ' ' + Sobrenome;
-		this.ImgPerfilUrl = 'http://localhost:3000/' + this.decode.ImgPerfil;
-
+		this.ImgPerfilUrl = this.decode.ImgPerfil;
 		this.getFarmList();
 	}
 

@@ -58,4 +58,8 @@ export class CreatePastoComponent {
 			);
 		}
 	}
+
+  close() {
+		this.dialogRef.close();
+  }
 }

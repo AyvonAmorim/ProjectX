@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserClientRoutingModule } from './user-client-routing.module';
 import { UserClientComponent } from './user-client.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
@@ -11,6 +11,9 @@ import { RetiroComponent } from './retiro/retiro.component';
 import { CreateRetiroComponent } from './retiro/create-retiro/create-retiro.component';
 import { PastosComponent } from './pastos/pastos.component';
 import { CreatePastoComponent } from './pastos/create-pasto/create-pasto.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { CreatePastoComponent } from './pastos/create-pasto/create-pasto.compone
     SharedModule,
     CommonModule,
     UserClientRoutingModule,
-    
+    MatPaginatorModule,
+		MatTableModule,
+		MatSortModule,
   ]
 })
 export class UserClientModule { }
